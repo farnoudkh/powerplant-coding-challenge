@@ -53,7 +53,7 @@ python run.py
 
 The terminal will display: Running on http://127.0.0.1:8888
 
-### Use curl to test the API
+### Use curl to send request
 
 Open another terminal at the same place and paste the following request (This is from example_payloads/payload3.json)
 
@@ -114,4 +114,13 @@ curl -i -X POST http://127.0.0.1:8888/productionplan \
     }
   ]
 }'
+```
+
+### Run unit and functional tests
+
+The folder *tests* contains the unit and functional tests.
+You can test the application by running these tests :
+
+```
+python -m unittest discover tests/
 ```
