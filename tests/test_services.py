@@ -95,7 +95,6 @@ class TestUnitProductionPlan(unittest.TestCase):
         # Calculate the cost for each powerplant
         for powerplant in powerplants:
             powerplant['cost'] = calculate_cost(powerplant, self.fuels)
-            print(powerplant)
         sorted_plants = merit_order(powerplants, self.fuels)
         assert sorted_plants[0]['name'] == 'windpark1'
         assert sorted_plants[1]['name'] == 'gasfiredbig1'

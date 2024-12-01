@@ -76,7 +76,6 @@ def production_plan(load, fuels, powerplants):
             if powerplant["type"] == "windturbine":
                 # Calcul the generated power for a windturbine 
                 generated_power = min(remaining_load, powerplant["pmax"] * (fuels["wind(%)"] / 100))
-                print(generated_power)
             else:
                 # Calcul the generated power for a gasfired or turbinejet 
                 generated_power = min(remaining_load, powerplant["pmax"])
