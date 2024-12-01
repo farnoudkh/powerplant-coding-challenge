@@ -7,16 +7,16 @@ app = Flask(__name__)
 def production_plan_api():
     """
     Creates a production plan on the provided datas.
-    It expectes a POST request with a JSON body containing the following datas : 
+    It expectes a POST request with a JSON body containing the following datas: 
         "loads" (float): The total energy
         fuels (dict): A dictionnary representing the fuel coasts
-        powerplant (dict): A dictionnary representing the powerplant containing the following informations : 
+        powerplant (dict): A dictionnary representing the powerplant containing the following informations: 
 
     Returns: 
-        Response (json): A JSON response contaning the production plan.
+        Response (json): A JSON response containing the production plan.
         If successful, 200 status code is returned.
-        If an error in the datas, 400 status code is returned.
-        If an server error, 500 status code is returned
+        If there is an error in the datas, 400 status code is returned.
+        If there is a server error, 500 status code is returned
     """
     try:
         data = request.json
@@ -24,7 +24,7 @@ def production_plan_api():
         fuels = data.get('fuels')
         powerplants = data.get('powerplants')
         if not load or not fuels or not powerplants:
-            return jsonify({"error": "Missings datas"}), 400
+            return jsonify({"error": "Error"}), 400
         result = production_plan(load, fuels, powerplants)
         return jsonify(result), 200
 

@@ -101,7 +101,7 @@ class TestAPIProductionPlan(unittest.TestCase):
 
     def test_missing_load_production_plan(self):
         """
-        Test case when load data is missing
+        Test case when "load" data is missing
         Return an error
         """
         payload = {
@@ -128,7 +128,7 @@ class TestAPIProductionPlan(unittest.TestCase):
     
     def test_missing_fuels_production_plan(self):
         """
-        Test case when fuels data are missing
+        Test case when "fuels" data are missing
         Return an error
         """
         payload = {
@@ -149,7 +149,7 @@ class TestAPIProductionPlan(unittest.TestCase):
 
     def test_missing_powerplants_production_plan(self):
         """
-        Test case when powerplants data are missing
+        Test case when "powerplants" data are missing
         Return an error
         """
         payload = {
