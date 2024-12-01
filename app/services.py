@@ -63,18 +63,20 @@ def production_plan(load, fuels, powerplants):
             - "pmax" (float): The maximum of power of the powerplant
     """
     # Sort the powerplants by production cost
-    sorted_powerplants = merit_order(powerplants, fuels)
-    result = []
-    remaining_load = load
-    for powerplant in sorted_powerplants:
-        if powerplant["type"] == "windturbine":
-            # Calcul the generated power for a windturbine 
-            generated_power = min(remaining_load, powerplant["pmax"] * (fuels["wind(%)"] / 100))
-        else:
-            # Calcul the generated power for a gas or turbinejet 
-            generated_power = min(remaining_load, powerplant["pmax"])
-        
-        result.append({"name": powerplant["name"], "p": round(generated_power, 1)})
-        remaining_load -= generated_power
-    
+    try:
+        sorted_powerplants = merit_order(powerplants, fuels)
+        result = []
+        remaining_load = load
+        for powerplant in sorted_powerplants:
+            if powerplant["type"] == "windturbine":
+                # Calcul the generated power for a windturbine 
+                generated_power = min(remaining_load, powerplant["pmax"] * (fuels["wind(%)"] / 100))
+            else:
+                # Calcul the generated power for a gas or turbinejet 
+                generated_power = min(remaining_load, powerplant["pmax"])
+            
+            result.append({"name": powerplant["name"], "p": round(generated_power, 1)})
+            remaining_load -= generated_power
+    except Exception as e:
+        print(f'Error in production plan: {e}')
     return result

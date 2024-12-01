@@ -92,7 +92,7 @@ class TestUnitProductionPlan(unittest.TestCase):
             }
         ]
 
-        # Calculate the cost for each powerplants
+        # Calculate the cost for each powerplant
         for powerplant in powerplants:
             powerplant['cost'] = calculate_cost(powerplant, self.fuels)
             print(powerplant)
