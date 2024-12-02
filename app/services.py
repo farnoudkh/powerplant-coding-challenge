@@ -5,6 +5,7 @@ def calculate_cost(powerplant, fuels):
     Calculates the cost of producing electricity for a given powerplant
     Parameters:
         powerplant (dict): A dictionnary representing the powerplant containing the following informations: 
+            - "name" (str): The name of the powerplant
             - "type" (str): The type of the powerplant (example : gasfired, turbojet, windturbine)
             - "efficiency" (float): The efficiency of the powerplant
             - "pmin" (float): The minimum of power of the powerplant
@@ -60,6 +61,7 @@ def production_plan(load, fuels, powerplants):
             - "co2(euro/ton)" (float): The cost of CO2 emissions per ton
             - "wind(%)" (float): The percentage of wind energy available
         powerplant (dict): A dictionnary representing the powerplan containing the following informations: 
+            - "name" (str): The name of the powerplant
             - "type" (str): The type of the powerplant (example : gasfired, turbojet, windturbine)
             - "efficiency" (float): The efficiency of the powerplant
             - "pmin" (float): The minimum of power of the powerplant
